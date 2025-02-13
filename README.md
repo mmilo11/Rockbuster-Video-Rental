@@ -15,6 +15,6 @@ Rockbuster Stealth is a movie rental company that used to have stores around the
 The data set includes information about Rockbuster’s film inventory, customers, payments, stores, staff, films, actors, rental history and addresses.
   - pgAdmin4: For managing PostgreSQL databases
   - PostgreSQL: Relational database management system (RDBMS) used to store and query Rockbuster's data
-  - Tableau Public: Platform for creating and sharing interactive data visualizations.
+  - Tableau Public: Platform for creating and sharing interactive data visualizations
 
 View Visualization here: [Visualizations on Tableau Public](https://public.tableau.com/app/profile/miloni.modi/viz/3_10RockbusterStealth_17359694910080/Story1)
