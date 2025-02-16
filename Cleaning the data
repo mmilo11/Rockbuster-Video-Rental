@@ -1,0 +1,26 @@
+-- SQL query to find unique records
+SELECT DISTINCT customer_id, store_id, first_name, last_name, email, address_id
+FROM customer;
+
+
+-- SQL query to identify any dupliactes
+SELECT customer_id, store_id, first_name, last_name, email, address_id,
+COUNT(*)
+FROM customer
+GROUP BY customer_id, store_id, first_name, last_name, email, address_id
+HAVING COUNT(*)>1;
+
+
+-- SQL query to find missing values
+SELECT * 
+FROM customer
+WHERE customer_id IS NULL OR
+      store_id IS NULL OR
+      first_name IS NULL OR
+      last_name IS NULL OR
+      Email IS NULL OR
+      address_id IS NULL OR
+      activebool IS NULL OR
+      create_date IS NULL OR
+      last_update IS NULL OR
+      active IS NULL;
