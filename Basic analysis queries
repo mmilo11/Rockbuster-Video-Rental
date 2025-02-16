@@ -1,0 +1,44 @@
+-- SQL query to analyze the rental duration distribution
+SELECT
+  rental_duration AS "rented for (in days)",
+  COUNT(*) AS "number of films"
+  FROM film
+  GROUP BY 1
+  ORDER BY 2;
+
+
+-- SQL query to find out the different film genres
+SELECT * FROM category;
+
+
+-- SQL query to calculate the average rental rate for each rating category
+SELECT rating, AVG(rental_rate) AS avg_rental_rate
+FROM film
+GROUP BY rating;
+
+
+-- SQL query to calculate the minimum and maximum rental durations of each rating category
+SELECT rating, MIN(rental_duration) AS min_rental_duration, MAX(rental_duration) AS max_rental_duration,
+FROM film
+GROUP BY rating;
+
+
+-- SQL query to calculate the count of movies, the average rental rate, and the range of rental durations for films with a 'PG' or 'G' rating
+SELECT
+  COUNT(film_id) AS count_of_movies,
+  AVG(rental_rate) AS average_movie_rental_rate,
+  MAX(rental_duration) AS maximum_rental_duration,
+  MIN(rental_duration) AS minimum_rental_duration
+FROM film
+WHERE rating IN ('PG', 'G');
+
+
+-- SQl query to calculate the count of movies, the average rental rate, and the range of rental durations for 'PG' and 'G' rated films
+SELECT rating,
+  COUNT(film_id) AS count_of_movies,
+  AVG(rental_rate) AS average_movie_rental_rate,
+  MAX(rental_duration) AS maximum_rental_duration,
+  MIN(rental_duration) AS minimum_rental_duration
+FROM film
+WHERE rating IN ('PG', 'G')
+GROUP BY rating;
