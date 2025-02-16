@@ -1,26 +1,31 @@
 -- SQL query to calculate summary statistics for numerical columns
-SELECT 
-	COUNT(*) AS total_customers, 
-	AVG(store_id) AS average_store_id, 
-	MIN(store_id) AS min_store_id, 
-	MAX(store_id) AS max_store_id, 
-	AVG(active) AS average_active, 
-	MIN(active) AS min_active, 
-	MAX(active) AS max_active, 
-	AVG(customer_id) AS average_customer_id, 
-	MIN(customer_id) AS min_customer_id, 
-	MAX(customer_id) AS max_customer_id, 
-	AVG(address_id) AS average_address_id, 
-	MIN(address_id) AS min_address_id, 
-	MAX(address_id) AS max_address_id, 
-	MIN(create_date) AS min_create_date, 
-	MAX(create_date) AS max_create_date 
-	FROM customer; 
+SELECT
+    COUNT(*) AS count_rows,
+    MIN(release_year) AS earliest_released_year,
+    MAX(release_year) AS latest_released_year,
+    AVG(release_year) AS average_released_year,
+    COUNT(release_year) AS count_released_year,
+    MIN(rental_duration) AS minimum_rental_duration,
+    MAX(rental_duration) AS maximum_rental_duration,
+    AVG(rental_duration) AS average_rental_duration,
+    COUNT(rental_duration) AS count_rental_duration,
+    MIN(rental_rate) AS minimum_rental_rate,
+    MAX(rental_rate) AS maximum_rental_rate,
+    AVG(rental_rate) AS average_rental_rate,
+    COUNT(rental_rate) AS count_rental_rate,
+    MIN(length) AS minimum_film_length,
+    MAX(length) AS maximum_film_length,
+    AVG(length) AS average_film_length,
+    COUNT(length) AS count_film_length,
+    MIN(replacement_cost) AS minimum_replacement_cost,
+    MAX(replacement_cost) AS maximum_replacement_cost,
+    AVG(replacement_cost) AS average_replacement_cost,
+    COUNT(replacement_cost) AS count_replacement_cost
+FROM film;
 
 
 -- SQL query to calculate summary statistics for non-numerical columns
-SELECT  
-	MODE() WITHIN GROUP (ORDER BY first_name) AS modal_first_name, 
-	MODE() WITHIN GROUP (ORDER BY last_name) AS modal_last_name, 
-	MODE() WITHIN GROUP (ORDER BY email) AS modal_email 
+SELECT
+    MODE() WITHIN GROUP (ORDER BY create_date) AS modal_create_date, 
+    MODE() WITHIN GROUP (ORDER BY store_id) AS modal_store_id, 
 FROM customer;
